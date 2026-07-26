@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(pkill -f \"node server.js\")",
+      "Bash(timeout 6 node scripts/dev.js)",
+      "Bash(pkill -f vite)",
+      "Bash(pkill -f \"scripts/dev.js\")",
+      "Bash(git config *)",
+      "Bash(echo \"name: $\\(git config --global user.name || echo '\\(not set\\)'\\)\")",
+      "Bash(echo \"email: $\\(git config --global user.email || echo '\\(not set\\)'\\)\")",
+      "Bash(security find-internet-password *)",
+      "Bash(echo \"commit identity now set to: $\\(git config --global user.name\\) <$\\(git config --global user.email\\)>\")",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}
