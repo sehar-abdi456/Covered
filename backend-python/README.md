@@ -1,13 +1,14 @@
-# Covered — Python backend (FastAPI)
+# Covered — Backend (FastAPI)
 
-This is a **drop-in Python port** of the Node/Express backend. It exposes the
-**identical REST API on port 4000**, so the existing React frontend in
-[`../frontend`](../frontend) works against it **unchanged** — nothing in the
-frontend needs editing to switch backends.
+The backend for Covered: a FastAPI service that detects eligible card benefits on
+a live transaction stream, pre-fills claims, and hands them off to a (stubbed)
+adjudication system. It serves its REST API on **port 4000**, which is what the
+React frontend in [`../frontend`](../frontend) proxies to — so the frontend runs
+against it unchanged.
 
-Same architecture, same seed data, same routing decisions (verified
-byte-for-byte against the Node version): 15 eligible, 3 quick-confirm, 6 dropped,
-all 3 abuse cases blocked.
+`verify.py` exercises the full pipeline over the seeded data and reports the
+routing outcome: 15 eligible, 3 quick-confirm, 6 dropped, and all 3 abuse cases
+blocked.
 
 ## Run it
 
@@ -20,16 +21,13 @@ pip install -r requirements.txt
 python main.py            # http://localhost:4000  (or: uvicorn main:app --port 4000)
 ```
 
-Then, in another terminal, start the frontend as usual:
+Then, in another terminal, start the frontend:
 
 ```bash
 cd ../frontend
 npm install
 npm run dev               # http://localhost:5173  (proxies /api -> :4000)
 ```
-
-> Run **either** the Node backend (`../backend`) **or** this Python backend —
-> both listen on port 4000, so only one at a time.
 
 ### Engine proof with no UI
 
@@ -38,7 +36,7 @@ python verify.py          # prints every transaction's routing decision + the
                           # duplicate/abuse results to the console
 ```
 
-## Structure (mirrors the Node backend)
+## Structure
 
 ```
 backend-python/
@@ -64,7 +62,7 @@ backend-python/
     └── adjudication.py           # Amex claims/adjudication black-box stub
 ```
 
-## Endpoints (identical contract to the Node backend)
+## Endpoints
 
 `GET /transactions` · `POST /transactions/stream/start|stop` ·
 `GET /transactions/stream/status` · `GET /coverages` ·
