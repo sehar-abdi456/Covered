@@ -1,0 +1,69 @@
+{
+  "_comment": "MACHINE-READABLE T&Cs. Stands in for the real Entitlements/T&C source (parsed from benefit-guide PDFs in production). The Rules Engine reads THIS file only. Adding a new benefit = adding a new object here, NOT changing engine code. This file is the literal proof for the judge question: 'Does a new benefit mean a rebuild? No — it's a new entry in this JSON.'",
+  "version": "2026-07-01",
+  "benefits": [
+    {
+      "benefit_type": "purchase_protection",
+      "display_name": "Purchase Protection",
+      "description": "Covers eligible items against damage or theft for a window after purchase.",
+      "eligible_card_products": ["Platinum", "Gold", "Green"],
+      "eligible_mcc_codes": ["5732", "5722", "5311", "5651", "5941", "5945", "5944"],
+      "excluded_categories": ["perishables", "vehicles", "tickets", "cash_equivalents", "services"],
+      "min_amount": 25,
+      "per_item_limit": 1000,
+      "annual_limit": 50000,
+      "coverage_window_days": 90,
+      "filing_deadline_days": 90
+    },
+    {
+      "benefit_type": "return_protection",
+      "display_name": "Return Protection",
+      "description": "Reimburses an eligible item a merchant refuses to take back within the return window.",
+      "eligible_card_products": ["Platinum", "Gold"],
+      "eligible_mcc_codes": ["5651", "5732", "5311", "5941", "5945", "5699"],
+      "excluded_categories": ["perishables", "vehicles", "tickets", "cash_equivalents", "services"],
+      "min_amount": 25,
+      "per_item_limit": 300,
+      "annual_limit": 1000,
+      "coverage_window_days": 90,
+      "filing_deadline_days": 90
+    },
+    {
+      "benefit_type": "travel_delay",
+      "display_name": "Trip Delay Insurance",
+      "description": "Reimburses reasonable expenses when a trip charged to the card is delayed beyond the threshold.",
+      "eligible_card_products": ["Platinum"],
+      "eligible_mcc_codes": ["3000", "3001", "3002", "3003", "4511", "4722"],
+      "excluded_categories": ["cash_equivalents"],
+      "min_amount": 0,
+      "per_item_limit": 500,
+      "annual_limit": 10000,
+      "coverage_window_days": 365,
+      "filing_deadline_days": 60,
+      "delay_threshold_hours": 6
+    }
+  ],
+  "mcc_category_map": {
+    "_comment": "Reference map: which real-world category an MCC belongs to. Used by the classifier stub to reason about ambiguous merchants.",
+    "5732": "electronics",
+    "5722": "appliances",
+    "5311": "department_store",
+    "5651": "apparel",
+    "5941": "sporting_goods",
+    "5945": "hobby_toys",
+    "5944": "jewelry",
+    "5699": "apparel",
+    "3000": "airline",
+    "3001": "airline",
+    "3002": "airline",
+    "3003": "airline",
+    "4511": "airline",
+    "4722": "travel_agency",
+    "5411": "perishables",
+    "5541": "fuel",
+    "7512": "vehicles",
+    "7922": "tickets",
+    "6011": "cash_equivalents",
+    "5812": "services"
+  }
+}
