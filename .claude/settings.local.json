@@ -15,7 +15,16 @@
       "Bash(echo \"commit identity now set to: $\\(git config --global user.name\\) <$\\(git config --global user.email\\)>\")",
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(git checkout *)",
+      "Bash(python3 -m venv .venv)",
+      "Bash(./.venv/bin/pip install *)",
+      "Bash(./.venv/bin/python verify.py)",
+      "Bash(curl -s localhost:4000/debug/evaluations)",
+      "Bash(./.venv/bin/python -c ' *)",
+      "Bash(curl -s localhost:4000/benefits)",
+      "Bash(pkill -f \"main.py\")",
+      "Bash(pkill -f uvicorn)"
     ]
   }
 }
