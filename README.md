@@ -3,7 +3,11 @@
 The backend for Covered: a FastAPI service that detects eligible card benefits on
 a live transaction stream, pre-fills claims, and hands them off to a (stubbed)
 adjudication system. It serves its REST API on **port 4000**, which is what the
+<<<<<<< HEAD
 React frontend in [`../frontend`](../frontend) proxies to — so the frontend runs
+=======
+React frontend in [`../frontend`](frontend) proxies to — so the frontend runs
+>>>>>>> 50caacd (updated README)
 against it unchanged.
 
 `verify.py` exercises the full pipeline over the seeded data and reports the
@@ -75,4 +79,8 @@ backend-python/
 FastAPI + Uvicorn, SQLite (`sqlite3`, in-memory, shared thread-safe connection),
 a background-thread stream emitter (Kafka stand-in), a JSON-driven rules engine,
 and a pluggable `predict()` classifier interface where a real scikit-learn model
+<<<<<<< HEAD
 would slot in. Standard library everywhere else — no ORM, no extra infra.
+=======
+would slot in. Standard library everywhere else — no ORM, no extra infra.
+>>>>>>> 50caacd (updated README)
